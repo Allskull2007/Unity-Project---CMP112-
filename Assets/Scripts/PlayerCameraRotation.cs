@@ -4,18 +4,13 @@ using static UnityEngine.Rendering.DebugUI.Table;
 public class PlayerCameraRotation : MonoBehaviour
 {
     /// <summary>
-    /// Another camera code that should HOPEFULLY allow the player to move the camera around the player ( it might rotate the player aswell but this depends on what feels/looks the best
+    /// First Person camera that allows the uster to look around
     /// </summary>
 
     public Transform Player;
     public float CameraSens;
-    private Vector3 _offset;
     Vector3 Rotation;
 
-    void Awake()
-    {
-        _offset = transform.position - Player.position;
-    }
 
 
     void Update()
@@ -27,7 +22,7 @@ public class PlayerCameraRotation : MonoBehaviour
 
     void LateUpdate()
     {
-        transform.position = Player.position + _offset;
+        transform.position = Player.position;
 
         Rotation.x += Input.GetAxis("Mouse X") * CameraSens;
         Rotation.y -= Input.GetAxis("Mouse Y") * CameraSens;
@@ -35,7 +30,6 @@ public class PlayerCameraRotation : MonoBehaviour
         Rotation.y = Mathf.Clamp(Rotation.y, -80f, 80f);
         transform.rotation = Quaternion.Euler(Rotation.y, Rotation.x, 0f);
         Quaternion rotation = Quaternion.Euler(Rotation.y, Rotation.x, 0f);
-        transform.position = Player.position + rotation * _offset;
-        transform.LookAt(Player);
+      
     }
 }
