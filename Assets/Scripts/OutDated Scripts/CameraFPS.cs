@@ -22,7 +22,7 @@ public class CameraFPS : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         Player.rotation = Quaternion.Euler(0f, yRotation, 0f);
-     
+        xRotation = Mathf.Clamp(xRotation, -80f, 80f);
 
     }
 
