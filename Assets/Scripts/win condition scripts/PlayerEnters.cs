@@ -6,9 +6,9 @@ public class PlayerEnters : MonoBehaviour
     private void OnCollisionEnter(Collision collision){
         score += 1;
         Debug.Log("score: " + score);
-        Pose.position = (0, 0, -216);
+        transform.position = new Vector3(0, 0, -211);
         if (score >=5) {
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }
