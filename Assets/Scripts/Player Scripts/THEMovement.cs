@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class THEMovement : MonoBehaviour
 {
-
+    [Header("Movement")]
     public float MovementSpeed;
     public Transform Direction;
     public float GroundDrag;
@@ -13,31 +13,38 @@ public class THEMovement : MonoBehaviour
     Vector3 MoveDirection;
     Rigidbody Rigidbody;
 
+    [Header("Ground Check")]
     public float PlayerHeight;
     public LayerMask Ground;
     bool grounded;
 
+    [Header("Jumping")]
     public float JumpPower;
     public float JumpCooldown;
     bool Jump;
     public KeyCode jumpKey = KeyCode.Space;
 
+    [Header("Sprint")]
+    public float SprintMultiplier;
+    public KeyCode Sprinting = KeyCode.LeftShift;
+    private bool IsSprinting;
+
+    //I have added headers to the code so the variables can be understood easier
+
+
     void Start()
     {
         Rigidbody = GetComponent<Rigidbody>();
         Rigidbody.freezeRotation = true;
+
         Jump = true;
     }
 
     void Update()
     {
         MyMovement();
-        SpeedController();
-
-        Debug.DrawRay(transform.position, Vector3.down * (PlayerHeight * 0.10f + 0.5f), grounded ? Color.green : Color.red);
-
-
-        grounded = Physics.Raycast(transform.position, Vector3.down, PlayerHeight * 0.90f + 0.2f, Ground);
+        
+        grounded = Physics.Raycast(transform.position, Vector3.down, PlayerHeight * 0.90f + 0.2f, Ground);  //adds drag to the player and so when jumping dont go super far.
         if (grounded)
         {
             Rigidbody.linearDamping = GroundDrag;
@@ -46,6 +53,7 @@ public class THEMovement : MonoBehaviour
         {
             Rigidbody.linearDamping = 0;
         }
+
     }
 
     void FixedUpdate()
@@ -62,27 +70,31 @@ public class THEMovement : MonoBehaviour
         {
             Jump = false;
             Jumping();
-            Invoke(nameof(canJump), JumpCooldown);
+            Invoke(nameof(canJump), JumpCooldown); //allows the player to jump again after a very small delay
 
         }
+
+        IsSprinting = Input.GetKey(Sprinting);
+
     }
 
     private void CalcMovement()
     {
+        float currentSpeed = MovementSpeed; 
+
         MoveDirection = Direction.forward * verticalInput + Direction.right * horizontalInput;
-        Rigidbody.AddForce(MoveDirection.normalized * MovementSpeed * 10f, ForceMode.Force);
-    }
 
-    private void SpeedController()
-    {
-        Vector3 FlatVel =  new Vector3(Rigidbody.linearVelocity.x, 0f, Rigidbody.linearVelocity.z);
-
-        if (FlatVel.magnitude > MovementSpeed)
+        if (Input.GetKey(Sprinting))
         {
-            Vector3 LimitSpeed = FlatVel.normalized * MovementSpeed;
-            Rigidbody.linearVelocity = new Vector3(LimitSpeed.x, Rigidbody.linearVelocity.y , LimitSpeed.z);
+            currentSpeed *= SprintMultiplier;
         }
+        if ( grounded )
+        {
+            Rigidbody.AddForce(MoveDirection.normalized * currentSpeed * 10f, ForceMode.Force);
+        }
+        
     }
+
 
     private void Jumping()
     {
