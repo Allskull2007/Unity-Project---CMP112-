@@ -1,47 +1,61 @@
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 
 public class PlayerEnters : MonoBehaviour
 {
     public int score = 0;
+    public List<Vector3> startingPos = new List<Vector3>();
 
-    private void OnCollisionEnter(Collision collision) {
-        score = CaculateScore(score);
-        //doesn't work currently as I'm not sure how to get a vector out of a fuction but I'm going to ask on Friday
-        //transform.position = new Vector3 (changeCoinLocation(score));
-
-        int CaculateScore(int score)
+    void Awake()
+    {
+        for (int i = 0; i < 5; i++)
         {
-            score += score;
-            return score;
+            startingPos = StartingPos(startingPos);
+        }
+        Debug.Log(startingPos);
+    }
+
+
+
+
+    private List<Vector3> StartingPos(List<Vector3> startingPos)
+    {
+        int randomInt = Random.Range(1, 10);
+        switch (randomInt)
+        {
+            case 1:
+                startingPos[0] = new Vector3(50,2,-20) ;
+                break;
+            case 2:
+                startingPos[0] = new Vector3(50, 2, -20);
+                break;
+            case 3:
+                startingPos[0] = new Vector3(50, 2, -20);
+                break;
+            case 4:
+                startingPos[0] = new Vector3(50, 2, -20);
+                break;
+            case 5:
+                startingPos[0] = new Vector3(50, 2, -20);
+                break;
+            case 6:
+                startingPos[0] = new Vector3(50, 2, -20);
+                break;
+            case 7:
+                startingPos[0] = new Vector3(50, 2, -20);
+                break;
+            case 8:
+                startingPos[0] = new Vector3(50, 2, -20);
+                break;
+            case 9:
+                startingPos[0] = new Vector3(50, 2, -20);
+                break;
+            case 10:
+                startingPos[0] = new Vector3(50, 2, -20);
+                break;
         }
 
-        void changeCoinLocation(int score)
-        {
-            Vector3 position = new Vector3(0, 0, 0);
-            //couldn't really think of a way to do this with loops or more efficeintly but if you figure something out feel free to change it
-            if (score == 1)
-            {
-                //the positions in the vectors currently are place holder values
-                position = new Vector3(0, 0, -211);
-            }
-            if (score == 2)
-            {
-                position = new Vector3(0, 0, -211);
-            }
-            if (score == 3)
-            {
-                position = new Vector3(0, 0, -211);
-            }
-            if (score == 4)
-            {
-                position = new Vector3(0, 0, -211);
-            }
-            if (score >= 5)
-            {
-                Destroy(gameObject);
-                //game sequence ends, not sure how to code that so just leaving it for now
-            }
-            //return position;
-        }
+        return startingPos;
     }
 }
