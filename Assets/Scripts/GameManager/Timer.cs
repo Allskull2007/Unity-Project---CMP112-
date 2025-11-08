@@ -12,6 +12,7 @@ public class Timer : MonoBehaviour
     int currentTimeInt;
     public float StartTime;
     public TextMeshProUGUI Amount;
+    public bool TimerStart = false;
 
     void Start()
     {
@@ -19,11 +20,12 @@ public class Timer : MonoBehaviour
     }
     void Update()
     {
-        currentTime = currentTime - Time.deltaTime;
-        currentTimeInt = System.Convert.ToInt32(currentTime);
-        Amount.text = System.Convert.ToString("Time: " + currentTimeInt);
+    currentTime = currentTime - Time.deltaTime;
+    currentTimeInt = System.Convert.ToInt32(currentTime);
+    
+    Amount.text = System.Convert.ToString("Time: " + currentTimeInt);
 
-        if ( currentTimeInt == 0)
+    if ( currentTimeInt == 0)
         {
             SceneManager.LoadScene(2);
         }
@@ -31,8 +33,4 @@ public class Timer : MonoBehaviour
 
 
     }
-
-
-
-
 }

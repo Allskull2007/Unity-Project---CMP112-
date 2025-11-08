@@ -7,25 +7,54 @@ using TMPro;
 using JetBrains.Annotations;
 public class PlayerTrigger : MonoBehaviour
 {
-    public PlayerEnters PlayerEnters;
     public TextMeshProUGUI Score;
-   
+    public ScoreCounter ScoreCounter;
+
+
     private void Awake()
     {
-        transform.position = PlayerEnters.startingPos[0];
+        int randomInt = Random.Range(1, 10);
+        switch (randomInt)
+        {
+            case 1:
+                transform.position = new Vector3(50, -7, -200);
+                break;
+            case 2:
+                transform.position = new Vector3(50, 2, -200);
+                break;
+            case 3:
+                transform.position = new Vector3(50, 2, -200);
+                break;
+            case 4:
+                transform.position = new Vector3(50, 2, -200);
+                break;
+            case 5:
+                transform.position = new Vector3(50, 2, -200);
+                break;
+            case 6:
+                transform.position = new Vector3(50, 2, -200);
+                break;
+            case 7:
+                transform.position = new Vector3(50, 2, -200);
+                break;
+            case 8:
+                transform.position = new Vector3(50, 2, -200);
+                break;
+            case 9:
+                transform.position = new Vector3(50, 2, -200);
+                break;
+            case 10:
+                transform.position = new Vector3(50, 2, -200);
+                break;
+        }
     }
+
+
 
     private void OnCollisionEnter(Collision collision)
     {
-        PlayerEnters.score = CaculateScore(PlayerEnters.score);
-        Debug.Log(PlayerEnters.score);
+        ScoreCounter.score += 1;
+        Debug.Log(ScoreCounter.score);
         Destroy(gameObject);
     }
-    int CaculateScore(int score)
-    {
-        score += 1;
-        return score;
-
-    }
-
 }

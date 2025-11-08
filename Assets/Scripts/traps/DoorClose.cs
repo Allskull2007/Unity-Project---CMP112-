@@ -10,7 +10,7 @@ public class DoorClose : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-            Door.SetActive(true);
+        Door.SetActive(true);
     }
 
 }
