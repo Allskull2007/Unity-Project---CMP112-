@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class Timer : MonoBehaviour
@@ -22,6 +23,16 @@ public class Timer : MonoBehaviour
         currentTimeInt = System.Convert.ToInt32(currentTime);
         Amount.text = System.Convert.ToString("Time: " + currentTimeInt);
 
+        if ( currentTimeInt == 0)
+        {
+            SceneManager.LoadScene(2);
+        }
+
+
 
     }
+
+
+
+
 }
