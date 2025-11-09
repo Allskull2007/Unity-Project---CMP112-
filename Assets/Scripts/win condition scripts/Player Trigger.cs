@@ -6,6 +6,7 @@ using TMPro;
 
 public class PlayerTrigger : MonoBehaviour
 {
+
     public int coin = 0;
     public TextMeshProUGUI Score;
     void OnTriggerEnter(Collider other)
@@ -15,7 +16,7 @@ public class PlayerTrigger : MonoBehaviour
             coin++;
             Destroy(other.gameObject);
         }
-    }   
+    }
     void Update()
     {
         Score.text = System.Convert.ToString("Score: " + coin);

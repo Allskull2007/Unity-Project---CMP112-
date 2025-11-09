@@ -14,7 +14,7 @@ public class WinConspawn1 : MonoBehaviour
                 transform.position = new Vector3(188, 5, 318);
                 break;
             case 3:
-                transform.position = new Vector3(50, 5, 197);
+                transform.position = new Vector3(130, 5, 143);
                 break;
         }
     }
