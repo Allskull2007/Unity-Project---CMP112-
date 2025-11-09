@@ -8,13 +8,13 @@ public class WinConspawn4 : MonoBehaviour
         switch (randomInt)
         {
             case 1:
-                transform.position = new Vector3(238, 5, 167);
+                transform.position = new Vector3(188, 5, -24);
                 break;
             case 2:
-                transform.position = new Vector3(-112, 5, 198);
+                transform.position = new Vector3(-161, 5, 7);
                 break;
             case 3:
-                transform.position = new Vector3(-137, 5 , 144);
+                transform.position = new Vector3(-187, 5 , -47);
                 break;
         }
     }
