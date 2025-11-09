@@ -1,16 +1,18 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class TrapTrigger : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    Rigidbody rb;
+    public GameObject arrowPrefab;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collision Collider)
     {
-        
+        GameObject arrow = Instantiate(arrowPrefab, transform.position, transform.rotation);
+        Debug.Log("Arrow");
+        Rigidbody rb = arrow.GetComponent<Rigidbody>();
+        if (rb != null )
+        {
+
+        }
     }
 }
