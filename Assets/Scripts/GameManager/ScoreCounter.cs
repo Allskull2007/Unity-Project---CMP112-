@@ -13,6 +13,6 @@ public class ScoreCounter : MonoBehaviour
 
     void Update()
     {
-
+        //Debug.Log(score);
     }
 }
