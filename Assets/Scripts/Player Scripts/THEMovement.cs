@@ -92,7 +92,11 @@ public class THEMovement : MonoBehaviour
         {
             Rigidbody.AddForce(MoveDirection.normalized * currentSpeed * 10f, ForceMode.Force);
         }
-        
+        else
+        {
+            Rigidbody.AddForce(MoveDirection.normalized * currentSpeed * 2f, ForceMode.Force);
+        }
+
     }
 
 

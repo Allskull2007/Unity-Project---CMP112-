@@ -1,22 +1,24 @@
-
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerTrigger : MonoBehaviour
 {
-    public int score;
-    public GameObject coin;
-
-    void start()
+    public int coin = 0;
+    public TextMeshProUGUI Score;
+    void OnTriggerEnter(Collider other)
     {
-        coin.SetActive(true);
+        if (other.CompareTag("coin"))
+        {
+            coin++;
+            Destroy(other.gameObject);
+        }
+    }   
+    void Update()
+    {
+        Score.text = System.Convert.ToString("Score: " + coin);
     }
 
- 
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        score += 1;
-        Debug.Log(score);
-        coin.SetActive(false);
-    }
 }
