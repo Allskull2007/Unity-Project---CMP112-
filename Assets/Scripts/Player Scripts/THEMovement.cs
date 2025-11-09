@@ -29,7 +29,6 @@ public class THEMovement : MonoBehaviour
     public KeyCode Sprinting = KeyCode.LeftShift;
     private bool IsSprinting;
 
-    //I have added headers to the code so the variables can be understood easier
 
 
     void Start()
@@ -51,7 +50,7 @@ public class THEMovement : MonoBehaviour
         }
         else
         {
-            Rigidbody.linearDamping = 0;
+            Rigidbody.linearDamping = 1;
         }
 
     }
@@ -92,7 +91,10 @@ public class THEMovement : MonoBehaviour
         {
             Rigidbody.AddForce(MoveDirection.normalized * currentSpeed * 10f, ForceMode.Force);
         }
-        
+        else
+        {
+            Rigidbody.AddForce(MoveDirection.normalized * currentSpeed * 3f, ForceMode.Force);
+        }
     }
 
 
