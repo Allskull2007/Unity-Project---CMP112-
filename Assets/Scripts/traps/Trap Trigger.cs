@@ -7,8 +7,8 @@ public class TrapTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collision Collider)
     {
-        GameObject arrow = Instantiate(arrowPrefab, transform.position, transform.rotation);
         Debug.Log("Arrow");
+        GameObject arrow = Instantiate(arrowPrefab, transform.position, transform.rotation);
         Rigidbody rb = arrow.GetComponent<Rigidbody>();
         if (rb != null )
         {

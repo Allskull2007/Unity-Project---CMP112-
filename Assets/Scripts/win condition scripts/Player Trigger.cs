@@ -6,10 +6,6 @@ public class PlayerTrigger : MonoBehaviour
     public int score;
     public GameObject coin;
 
-    void start()
-    {
-        coin.SetActive(true);
-    }
 
  
 
@@ -17,6 +13,5 @@ public class PlayerTrigger : MonoBehaviour
     {
         score += 1;
         Debug.Log(score);
-        coin.SetActive(false);
     }
 }
