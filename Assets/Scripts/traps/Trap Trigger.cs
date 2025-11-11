@@ -28,12 +28,16 @@ public class TrapTrigger : MonoBehaviour
                 float zOffset = row * Spacing - totalDepth / 2f - BackOffset;
 
                 Vector3 spawnPos = transform.position + new Vector3(xOffset, SpawnHeight, zOffset);
-                GameObject arrow = Instantiate(ArrowPrefab, spawnPos, Quaternion.identity);
+                GameObject arrow = Instantiate(ArrowPrefab, spawnPos, Quaternion.Euler(-90f, 0f, 0f));
                 Rigidbody rb = arrow.GetComponent<Rigidbody>();
                 if (rb != null)
                 {
                     rb.useGravity = true;
                 }
+
+                Destroy(arrow, 3f);
+
+
             }
         }
 
