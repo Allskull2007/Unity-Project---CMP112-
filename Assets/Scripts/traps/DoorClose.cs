@@ -4,6 +4,7 @@ public class DoorClose : MonoBehaviour
 {
     public GameObject Door;
     int counter;
+    public Timer timer;
     void Start()
     {
         Door.SetActive(false);
@@ -16,5 +17,11 @@ public class DoorClose : MonoBehaviour
             Door.SetActive(true);
             counter++;
         }
+    
+        if(timer != null)
+        {
+            timer.TimerStart = true;
+        }
+    
     }
 }

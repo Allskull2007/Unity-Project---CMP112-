@@ -6538,6 +6538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Door: {fileID: 1979922843}
+  timer: {fileID: 1758464934}
 --- !u!1 &420510493
 GameObject:
   m_ObjectHideFlags: 0
@@ -28218,7 +28219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5542a9b7e18053e4c974dba918cca939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DissaperingWalls
-  wall: {fileID: 0}
+  wall: {fileID: 1033916589}
   MinDelay: 60
   MaxDelay: 300
   Timer: 15

@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    float currentTime = 0f;
+    float currentTime = 300f;
     int currentTimeInt;
     public float StartTime;
     public TextMeshProUGUI Amount;
@@ -17,18 +17,26 @@ public class Timer : MonoBehaviour
     void Start()
     {
         currentTime = StartTime;
+        Amount.text = "Time: " + Mathf.CeilToInt(currentTime);
     }
     void Update()
     {
-    currentTime = currentTime - Time.deltaTime;
-    currentTimeInt = System.Convert.ToInt32(currentTime);
-    
-    Amount.text = System.Convert.ToString("Time: " + currentTimeInt);
-
-    if ( currentTimeInt == 0)
+        if (TimerStart)
         {
-            SceneManager.LoadScene(2);
+            currentTime = currentTime - Time.deltaTime;
+            currentTimeInt = System.Convert.ToInt32(currentTime);
+
+            Amount.text = System.Convert.ToString("Time: " + currentTimeInt);
+
+            if (currentTimeInt <= 0f)
+            {
+                TimerStart = false;
+                SceneManager.LoadScene(2);
+            }
         }
+    
+
+ 
 
 
 
