@@ -205,12 +205,10 @@ GameObject:
   - component: {fileID: 108035822}
   - component: {fileID: 108035821}
   - component: {fileID: 108035820}
-  - component: {fileID: 108035819}
-  - component: {fileID: 108035823}
   - component: {fileID: 108035825}
   m_Layer: 0
   m_Name: Possible Location win Condition 3
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -230,18 +228,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1287695358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &108035819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108035817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdcb387f0f5abb245864cf271a22e4c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerEnters
 --- !u!135 &108035820
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -257,7 +243,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -319,20 +305,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108035817}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &108035823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108035817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d52fd4e306810041bc4e7d3ff9ae8ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 0
-  coin: {fileID: 662237113}
 --- !u!114 &108035825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -704,11 +676,9 @@ GameObject:
   - component: {fileID: 176804357}
   - component: {fileID: 176804356}
   - component: {fileID: 176804355}
-  - component: {fileID: 176804359}
-  - component: {fileID: 176804360}
   m_Layer: 0
   m_Name: ' Testing win Condition'
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -728,7 +698,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -805,32 +775,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1287695358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &176804359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 176804354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdcb387f0f5abb245864cf271a22e4c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerEnters
---- !u!114 &176804360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 176804354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d52fd4e306810041bc4e7d3ff9ae8ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 0
-  coin: {fileID: 662237113}
 --- !u!1 &232576596
 GameObject:
   m_ObjectHideFlags: 0
@@ -2111,6 +2055,7 @@ GameObject:
   - component: {fileID: 657214054}
   - component: {fileID: 657214056}
   - component: {fileID: 657214055}
+  - component: {fileID: 657214057}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2187,6 +2132,20 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &657214057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657214053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d52fd4e306810041bc4e7d3ff9ae8ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerTrigger
+  coin: 0
+  Score: {fileID: 132406741}
 --- !u!1 &662237113
 GameObject:
   m_ObjectHideFlags: 0
@@ -2199,12 +2158,10 @@ GameObject:
   - component: {fileID: 662237118}
   - component: {fileID: 662237117}
   - component: {fileID: 662237116}
-  - component: {fileID: 662237115}
-  - component: {fileID: 662237119}
   - component: {fileID: 662237121}
   m_Layer: 0
   m_Name: Possible Location win Condition 1
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2224,18 +2181,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1287695358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &662237115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 662237113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdcb387f0f5abb245864cf271a22e4c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerEnters
 --- !u!135 &662237116
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2251,7 +2196,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2313,20 +2258,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662237113}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &662237119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 662237113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d52fd4e306810041bc4e7d3ff9ae8ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 0
-  coin: {fileID: 662237113}
 --- !u!114 &662237121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3173,12 +3104,10 @@ GameObject:
   - component: {fileID: 972319472}
   - component: {fileID: 972319471}
   - component: {fileID: 972319470}
-  - component: {fileID: 972319469}
-  - component: {fileID: 972319473}
   - component: {fileID: 972319475}
   m_Layer: 0
   m_Name: Possible Location win Condition 4
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3198,18 +3127,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1287695358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &972319469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972319467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdcb387f0f5abb245864cf271a22e4c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerEnters
 --- !u!135 &972319470
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3225,7 +3142,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -3287,20 +3204,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972319467}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &972319473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972319467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d52fd4e306810041bc4e7d3ff9ae8ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 0
-  coin: {fileID: 662237113}
 --- !u!114 &972319475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8893,12 +8796,10 @@ GameObject:
   - component: {fileID: 1327932062}
   - component: {fileID: 1327932061}
   - component: {fileID: 1327932060}
-  - component: {fileID: 1327932059}
-  - component: {fileID: 1327932063}
   - component: {fileID: 1327932065}
   m_Layer: 0
   m_Name: Possible Location win Condition 2
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8918,18 +8819,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1287695358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1327932059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1327932057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdcb387f0f5abb245864cf271a22e4c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerEnters
 --- !u!135 &1327932060
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8945,7 +8834,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -9007,20 +8896,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327932057}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1327932063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1327932057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d52fd4e306810041bc4e7d3ff9ae8ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 0
-  coin: {fileID: 662237113}
 --- !u!114 &1327932065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9403,12 +9278,10 @@ GameObject:
   - component: {fileID: 1445450283}
   - component: {fileID: 1445450282}
   - component: {fileID: 1445450281}
-  - component: {fileID: 1445450280}
-  - component: {fileID: 1445450284}
   - component: {fileID: 1445450286}
   m_Layer: 0
   m_Name: Possible Location win Condition 5
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9428,18 +9301,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1287695358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1445450280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445450278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdcb387f0f5abb245864cf271a22e4c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerEnters
 --- !u!135 &1445450281
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9455,7 +9316,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -9517,20 +9378,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445450278}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1445450284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445450278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d52fd4e306810041bc4e7d3ff9ae8ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 0
-  coin: {fileID: 662237113}
 --- !u!114 &1445450286
 MonoBehaviour:
   m_ObjectHideFlags: 0

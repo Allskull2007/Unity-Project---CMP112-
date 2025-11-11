@@ -51,7 +51,7 @@ public class THEMovement : MonoBehaviour
         }
         else
         {
-            Rigidbody.linearDamping = 0;
+            Rigidbody.linearDamping = 2;
         }
 
     }
@@ -92,7 +92,10 @@ public class THEMovement : MonoBehaviour
         {
             Rigidbody.AddForce(MoveDirection.normalized * currentSpeed * 10f, ForceMode.Force);
         }
-        
+        else
+        {
+            Rigidbody.AddForce(MoveDirection.normalized * currentSpeed * 3f, ForceMode.Force);
+        }
     }
 
 
