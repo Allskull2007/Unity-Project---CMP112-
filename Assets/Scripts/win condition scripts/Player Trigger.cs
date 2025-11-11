@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerTrigger : MonoBehaviour
@@ -13,23 +14,22 @@ public class PlayerTrigger : MonoBehaviour
     public GameWinTrigger GameWinTrigger;
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Coin"))
+        if (other.CompareTag("Coin"))  //Checks if coin is tagged coin
         {
             coin += 1;
-            Destroy(other.gameObject);
+            Destroy(other.gameObject); //Destroyes the collected coin
             if (coin >= 5)
             {
-                Door.SetActive(false);
+                Door.SetActive(false); //So the door does not open early
             }
         }
     }
 
     void Update()
     {
-        Score.text = System.Convert.ToString("Score: " + coin);
-        if (GameWinTrigger.win == true && coin >= 5) {
-            //Debug.Log("Hello");
-            //replace this with code to switch to the win screen
+        Score.text = System.Convert.ToString("Score: " + coin);  //UI to display the score
+        if (GameWinTrigger.win == true && coin >= 5) { //If all conditions are met the win scene loads
+            SceneManager.LoadScene(3);
         }
     }
 

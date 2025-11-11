@@ -29,29 +29,29 @@ public class THEMovement : MonoBehaviour
     public KeyCode Sprinting = KeyCode.LeftShift;
     private bool IsSprinting;
 
-    //I have added headers to the code so the variables can be understood easier
+    //I have added headers to the code so the variables can be understood easier and to make it easier to understand in inspector
 
 
     void Start()
     {
         Rigidbody = GetComponent<Rigidbody>();
-        Rigidbody.freezeRotation = true;
+        Rigidbody.freezeRotation = true; //Stops rotation of the Player Object
 
-        Jump = true;
+        Jump = true;  //Allows the player to jump for the start
     }
 
     void Update()
     {
         MyMovement();
         
-        grounded = Physics.Raycast(transform.position, Vector3.down, PlayerHeight * 0.90f + 0.2f, Ground);  //adds drag to the player and so when jumping dont go super far.
+        grounded = Physics.Raycast(transform.position, Vector3.down, PlayerHeight * 0.90f + 0.2f, Ground);  //Uses Raycast to check see if the player is on the ground
         if (grounded)
         {
-            Rigidbody.linearDamping = GroundDrag;
+            Rigidbody.linearDamping = GroundDrag;  //Applys drag when moving on the ground
         }
         else
         {
-            Rigidbody.linearDamping = 2;
+            Rigidbody.linearDamping = 2; //Less drag while in the air
         }
 
     }
@@ -63,18 +63,18 @@ public class THEMovement : MonoBehaviour
 
     private void MyMovement()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
+        horizontalInput = Input.GetAxisRaw("Horizontal"); //WASD movement keys
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKeyDown(jumpKey) && Jump && grounded)
+        if (Input.GetKeyDown(jumpKey) && Jump && grounded) //If these are met the player can jump
         {
-            Jump = false;
-            Jumping();
+            Jump = false; //So cant double jump
+            Jumping(); //Function for jumping
             Invoke(nameof(canJump), JumpCooldown); //allows the player to jump again after a very small delay
 
         }
 
-        IsSprinting = Input.GetKey(Sprinting);
+        IsSprinting = Input.GetKey(Sprinting); //Checks if the player is sprinting
 
     }
 
@@ -82,31 +82,31 @@ public class THEMovement : MonoBehaviour
     {
         float currentSpeed = MovementSpeed; 
 
-        MoveDirection = Direction.forward * verticalInput + Direction.right * horizontalInput;
+        MoveDirection = Direction.forward * verticalInput + Direction.right * horizontalInput; //Calculates movement based of the input and direction facing
 
         if (Input.GetKey(Sprinting))
         {
-            currentSpeed *= SprintMultiplier;
+            currentSpeed *= SprintMultiplier; //Increase speed for sprinting
         }
         if ( grounded )
         {
-            Rigidbody.AddForce(MoveDirection.normalized * currentSpeed * 10f, ForceMode.Force);
+            Rigidbody.AddForce(MoveDirection.normalized * currentSpeed * 10f, ForceMode.Force); //Adds the force to move while on the ground
         }
         else
         {
-            Rigidbody.AddForce(MoveDirection.normalized * currentSpeed * 3f, ForceMode.Force);
+            Rigidbody.AddForce(MoveDirection.normalized * currentSpeed * 3f, ForceMode.Force); //Adds less force while in the air
         }
     }
 
 
     private void Jumping()
     {
-        Rigidbody.linearVelocity = new Vector3(Rigidbody.linearVelocity.x, 0f, Rigidbody.linearVelocity.z);
-        Rigidbody.AddForce(transform.up * JumpPower, ForceMode.Impulse);
+        Rigidbody.linearVelocity = new Vector3(Rigidbody.linearVelocity.x, 0f, Rigidbody.linearVelocity.z); //Resets vertical velocity 
+        Rigidbody.AddForce(transform.up * JumpPower, ForceMode.Impulse); //Impulse force to jump
     }
     private void canJump()
     {
-        Jump = true;
+        Jump = true; //Allows tthe player to jump again
     }
 
 }

@@ -10,22 +10,22 @@ public class DissaperingWalls : MonoBehaviour
 
     void Start()
     {
-        if(wall == null)
+        if(wall == null)   //Checks if wall is assigned
         {
             wall = GetComponent<GameObject>();
         }
 
-        StartCoroutine(WallLoop());
+        StartCoroutine(WallLoop());  
 
     }
 
     IEnumerator WallLoop()
     {
-        while (true)
+        while (true)  //runs forever while true
         {
-            yield return new WaitForSeconds(Random.Range(MinDelay, MaxDelay));
+            yield return new WaitForSeconds(Random.Range(MinDelay, MaxDelay)); //Delay between disapperence 
             wall.SetActive(false);
-            yield return new WaitForSeconds(Timer);
+            yield return new WaitForSeconds(Timer);  //How long the wall is turned off
             wall.SetActive(true);
         }
     }

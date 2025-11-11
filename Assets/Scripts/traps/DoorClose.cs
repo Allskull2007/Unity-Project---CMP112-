@@ -7,12 +7,12 @@ public class DoorClose : MonoBehaviour
     public Timer timer;
     void Start()
     {
-        Door.SetActive(false);
+        Door.SetActive(false);  //Start the game with door turned off
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (counter < 1)
+        if (counter < 1)   //The door does not re-Activate when eneetr the trigger again
         {
             Door.SetActive(true);
             counter++;
@@ -20,7 +20,7 @@ public class DoorClose : MonoBehaviour
     
         if(timer != null)
         {
-            timer.TimerStart = true;
+            timer.TimerStart = true;   //Starts the timer 
         }
     
     }

@@ -9,6 +9,6 @@ public class Restart : MonoBehaviour
 {
     public void restart()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1); //Sends back to playable scene
     }
 }
