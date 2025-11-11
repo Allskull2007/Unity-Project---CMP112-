@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class DoorClose : MonoBehaviour
 {
-    public PlayerTrigger PlayerTrigger;
     public GameObject Door;
     int counter;
     void Start()
