@@ -1,5 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class GameWinTrigger : MonoBehaviour
 {
     public bool win = false;
@@ -8,6 +12,7 @@ public class GameWinTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         win = true;
+        
     }
     private void OnTriggerExit(Collider other)
     {
