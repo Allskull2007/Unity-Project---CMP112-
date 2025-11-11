@@ -9,6 +9,6 @@ public class StartGame : MonoBehaviour
 {
     public void OnButton()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1); //Loads the playable scene
     }
 }

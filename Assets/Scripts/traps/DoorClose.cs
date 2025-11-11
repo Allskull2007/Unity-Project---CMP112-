@@ -20,7 +20,7 @@ public class DoorClose : MonoBehaviour
     
         if(timer != null)
         {
-            timer.TimerStart = true;   //Starts the timer 
+            timer.TimerStart = true;   //Starts the timer once the door closes
         }
     
     }
