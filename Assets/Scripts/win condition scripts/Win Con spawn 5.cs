@@ -11,10 +11,10 @@ public class WinConspawn5 : MonoBehaviour
                 transform.position = new Vector3(154, 5, 90);
                 break;
             case 2:
-                transform.position = new Vector3(180, 5, -11);
+                transform.position = new Vector3(212, 5, -11);
                 break;
             case 3:
-                transform.position = new Vector3(-159, 5, -171);
+                transform.position = new Vector3(-122, 5, -152);
                 break;
         }
     }
