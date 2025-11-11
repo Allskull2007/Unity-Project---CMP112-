@@ -34,7 +34,7 @@ public class TrapTrigger : MonoBehaviour
                 {
                     rb.useGravity = true;  //The arrows fall down
                 }
-                Destroy(arrow, 3f); //arrows get destroyed after 3 seconds
+                Destroy(arrow, 2.5f); //arrows get destroyed after 2.5 seconds
 
             }
         }
