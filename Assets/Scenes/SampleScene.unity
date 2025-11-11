@@ -12479,7 +12479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d52fd4e306810041bc4e7d3ff9ae8ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTrigger
-  coin: 4
+  coin: 0
   Score: {fileID: 132406741}
   Door: {fileID: 1979922843}
   win: 0
@@ -33930,7 +33930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41795c731ed98f442bb437bf802b12eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartTime: 300
+  StartTime: 600
   Amount: {fileID: 1500027876}
   TimerStart: 0
 --- !u!4 &1776984010 stripped
