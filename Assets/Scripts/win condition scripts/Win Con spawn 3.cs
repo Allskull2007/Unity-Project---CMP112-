@@ -4,7 +4,7 @@ public class WinConspawn3 : MonoBehaviour
 {
     private void Awake()
     {
-        int randomInt = Random.Range(1, 10);
+        int randomInt = Random.Range(1, 3);
         switch (randomInt)
         {
             case 1:

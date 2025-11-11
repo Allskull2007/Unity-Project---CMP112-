@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class DoorClose : MonoBehaviour
 {
+    public PlayerTrigger PlayerTrigger;
     public GameObject Door;
+    int counter;
     void Start()
     {
         Door.SetActive(false);
@@ -10,7 +12,10 @@ public class DoorClose : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Door.SetActive(true);
+        if (counter < 1)
+        {
+            Door.SetActive(true);
+            counter++;
+        }
     }
-
 }
