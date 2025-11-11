@@ -11,7 +11,7 @@ public class PlayerTrigger : MonoBehaviour
     public int coin = 0;
     public TextMeshProUGUI Score;
     public GameObject Door;
-    public GameWinTrigger GameWinTrigger;
+    public bool win = false;
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Coin"))  //Checks if coin is tagged coin
@@ -23,14 +23,23 @@ public class PlayerTrigger : MonoBehaviour
                 Door.SetActive(false); //So the door does not open early
             }
         }
+        if (other.CompareTag("GameWinTrigger")) {
+            win = true;
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("GameWinTrigger")) {
+            win = false;
+        }
     }
 
     void Update()
     {
         Score.text = System.Convert.ToString("Score: " + coin);  //UI to display the score
-        if (GameWinTrigger.win == true && coin >= 5) { //If all conditions are met the win scene loads
+        if (win == true && coin >=5) {
+            Debug.Log("hello");
             SceneManager.LoadScene(3);
         }
-    }
-
+    } 
 }
