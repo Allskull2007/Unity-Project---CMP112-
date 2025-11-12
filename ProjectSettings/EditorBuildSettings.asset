@@ -6,14 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
     path: Assets/MYScenes/MainMenu.unity
     guid: 0fd71accf050f7e45ba9e963852548d4
   - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
     path: Assets/MYScenes/TimeFail.unity
     guid: 062a2b524ea56054ba81400aff08bec2
+  - enabled: 1
+    path: Assets/MYScenes/Win.unity
+    guid: 8772f8d7ca81e824aba6d5a1577f704b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

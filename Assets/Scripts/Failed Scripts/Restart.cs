@@ -5,10 +5,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class StartGame : MonoBehaviour
+public class Restart : MonoBehaviour
 {
-    public void OnButton()
+    public void restart()
     {
-        SceneManager.LoadScene(1); //Loads the playable scene
+        SceneManager.LoadScene(1); //Sends back to playable scene
     }
 }
