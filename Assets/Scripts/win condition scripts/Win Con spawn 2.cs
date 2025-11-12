@@ -8,7 +8,7 @@ public class PlayerTrigger1 : MonoBehaviour
         switch (randomInt)
         {
             case 1:
-                transform.position = new Vector3(-191, 5, 31);
+                transform.position = new Vector3(-194, 5, 54);
                 break;
             case 2:
                 transform.position = new Vector3(-141, 5, -84);
